@@ -128,7 +128,7 @@ Resources:
       LogsConfig:
         CloudWatchLogs:
           Status: ENABLED
-          GroupName: !Sub ${paramCodeBuildProjectName}-cloud-watch-logs
+          GroupName: !Sub ${paramCodeBuildProjectName}-CloudWatchLogs
       Tags:
         - Key: mastering-cloudformation
           Value: !Ref paramUniqueTagName
