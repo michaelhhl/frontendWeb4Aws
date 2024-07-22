@@ -1,0 +1,29 @@
+version: 0.2
+env:
+  variables:
+    APP_ENV: "prod"
+phases:
+  # use the install phase only for installing packages in the build environment
+  install:
+    runtime-versions:
+      nodejs: 20
+    commands:
+      - echo Install Vite and all node_modules
+      - cd $CODEBUILD_SRC_DIR/react-web-aws
+      - npm install && npm install -D vite
+  build:
+    commands:
+      - echo Build process started now
+      - cd $CODEBUILD_SRC_DIR/react-web-aws
+      - npm run build
+  post_build:
+    commands:
+      - echo Build process finished, upload artifacts to S3 bucket
+      - cd dist
+      - ls -la
+artifacts:
+  #  get files within the dist folder only
+  base-directory: "react-web-aws/dist*"
+  discard-paths: yes
+  files:
+    - "**/*"
