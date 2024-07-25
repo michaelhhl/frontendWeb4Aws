@@ -24,6 +24,9 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR (edit)
         </p>
+        <p>
+          This web site set up with cloudfront.
+        </p>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
